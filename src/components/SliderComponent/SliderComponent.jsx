@@ -1,6 +1,8 @@
 import Slider from 'react-slick';
 import { Image } from 'antd'
 import React from "react"
+import './slider.css';
+
 
 const SliderComponent = ({ arrImages }) => {
     const settings = {

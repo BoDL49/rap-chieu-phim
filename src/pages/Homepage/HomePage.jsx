@@ -1,6 +1,6 @@
 import React from 'react'
 import TypeProduct from '../../components/TypeProduct/TypeProduct'
-import { WrapperTypeProduct } from './styled'
+import { ButtonCustom, WrapperProducts, WrapperTypeProduct } from './styled'
 import SliderComponent from '../../components/SliderComponent/SliderComponent'
 import slider1 from '../../assets/images/slider1.webp'
 import slider2 from '../../assets/images/slider2.webp'
@@ -10,7 +10,7 @@ import CardComponent from '../../components/CardComponent/CardComponent'
 const HomePage = () => {
     const arr = ['Phim', 'Lịch chiếu', 'Khuyến mãi']
     return (
-        <div style={{ padding: '0 120px' }}>
+        <><div style={{ padding: '0 120px' }}>
             <WrapperTypeProduct>
                 {arr.map((item) => {
                     return (
@@ -18,13 +18,30 @@ const HomePage = () => {
                     )
                 })}
             </WrapperTypeProduct>
-
-            <SliderComponent arrImages={[slider1, slider2, slider3]} />
-
-            <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <CardComponent />
-            </div>
         </div>
+            <div id='container' style={{ padding: '0 100px', height: '1000px', width: '89.9%' }}>
+                <SliderComponent arrImages={[slider1, slider2, slider3]} />
+
+                <WrapperProducts>
+                    <CardComponent />
+                    <CardComponent />
+                    <CardComponent />
+                    <CardComponent />
+                    <CardComponent />
+                    <CardComponent />
+                    <CardComponent />
+                    <CardComponent />
+                </WrapperProducts>
+
+
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                    <ButtonCustom style={{ width: '240px', height: '38px' }}><span style={{
+                        color: 'rgb(187, 37, 37, 1)'
+                    }}>Xem thêm</span></ButtonCustom>
+                </div></div>
+        </>
+
+
     )
 }
 
