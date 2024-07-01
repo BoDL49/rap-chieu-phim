@@ -29,12 +29,6 @@ export const routes = [
         IssShowFooter: true
     },
     {
-        path: '/:type',
-        page: TypeProductPage,
-        IssShowHeader: true,
-        IssShowFooter: true
-    },
-    {
         path: '/signin',
         page: SignInPage,
         IssShowHeader: true,

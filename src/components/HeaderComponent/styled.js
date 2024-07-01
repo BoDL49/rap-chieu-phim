@@ -4,7 +4,7 @@ import { Button, Row } from 'antd'
 export const WrapperHeader = styled(Row)`
     padding: 20px 120px;
     align-items: center;
-
+    border-bottom: 1px solid #fff;
 `
 
 export const WrapperTextHeader = styled.span`
@@ -31,6 +31,11 @@ export const WrapperHeaderFilm = styled(Button)`
     font-size: 15px;
     color: #fff;
     font-family: 'Josefin Sans';
+    & svg{
+        width: 25px;
+        height: 25px;
+        fill: rgba(255, 245, 224, 1);
+    }
 `
 export const WrapperHeaderCart = styled.div`
     display: flex;

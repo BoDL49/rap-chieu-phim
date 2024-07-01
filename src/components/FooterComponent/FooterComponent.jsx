@@ -3,6 +3,7 @@ import { Footer } from './styled'
 import { Col } from 'antd'
 import { WrapperHeadFooter, WrapperColFooter, WrapperCinema, FooterIcoin } from './styled'
 
+
 const FooterComponent = () => {
     return (
         <Footer>
