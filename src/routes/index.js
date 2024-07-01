@@ -12,42 +12,50 @@ export const routes = [
     {
         path: '/',
         page: HomePage,
-        IssShowHeader: true
+        IssShowHeader: true,
+        IssShowFooter: true
     },
 
     {
         path: '/order',
         page: OrderPage,
-        IssShowHeader: true
+        IssShowHeader: true,
+        IssShowFooter: true
     },
     {
         path: '/products',
         page: ProductsPage,
-        IssShowHeader: true
+        IssShowHeader: true,
+        IssShowFooter: true
     },
     {
         path: '/:type',
         page: TypeProductPage,
-        IssShowHeader: true
+        IssShowHeader: true,
+        IssShowFooter: true
     },
     {
         path: '/signin',
         page: SignInPage,
-        IssShowHeader: true
+        IssShowHeader: true,
+        IssShowFooter: true
     },
     {
         path: '/signup',
         page: SignUnPage,
-        IssShowHeader: true
+        IssShowHeader: true,
+        IssShowFooter: true
     },
     {
         path: '/productdetail',
         page: ProductDetail,
-        IssShowHeader: true
+        IssShowHeader: true,
+        IssShowFooter: true
     },
     {
         path: '*',
         page: NotFoundPage,
-        IssShowHeader: false
+        IssShowHeader: false,
+        IssShowFooter: false
     },
 ]

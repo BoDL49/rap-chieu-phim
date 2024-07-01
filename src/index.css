@@ -1,5 +1,7 @@
 @import "../node_modules/slick-carousel/slick/slick.css";
 @import "../node_modules/slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 
 body {
@@ -7,6 +9,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: linear-gradient(180deg, #141E46 9.13%, #CC5E64 23.98%, #141E46 33.61%);
+
 }
 
 .page-not-found {

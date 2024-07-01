@@ -22,9 +22,11 @@ const HeaderComponent = () => {
                 <Col span={6}>
                     <WrapperHeaderCart >
                         <WrapperHeaderFilm>
-                            <span>Đặt vé ngay</span>
+                            <span style={{ fontFamily: 'Poppins' }}>Đặt vé ngay</span>
                         </WrapperHeaderFilm>
-                        <WrapperHeaderFilm>Đặt bắp nước</WrapperHeaderFilm>
+                        <WrapperHeaderFilm>
+                            <span style={{ fontFamily: 'Poppins' }}>Đặt bắp nước</span>
+                        </WrapperHeaderFilm>
                     </WrapperHeaderCart>
                 </Col>
                 <Col span={6}>

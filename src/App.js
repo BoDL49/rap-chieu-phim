@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { routes } from './routes'
 import DefalutComponent from './components/DefalutComponent/DefalutComponent'
+import FooterComponent from './components/FooterComponent/FooterComponent'
 
 
 
@@ -13,12 +14,16 @@ function App() {
           {routes.map((route) => {
             const Page = route.page
             const Layout = route.IssShowHeader ? DefalutComponent : Fragment
-
+            const Footer = route.IssShowFooter ? FooterComponent : Fragment
             return (
               <Route path={route.path} element={
-                <Layout>
-                  <Page />
-                </Layout>
+                <div>
+                  <Layout>
+                    <Page />
+                  </Layout>
+                  <Footer />
+                </div>
+
               } />
             )
           })}

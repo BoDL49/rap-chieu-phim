@@ -2,8 +2,9 @@ import styled from 'styled-components'
 import { Button, Row } from 'antd'
 
 export const WrapperHeader = styled(Row)`
-    padding: 10px 120px;
+    padding: 20px 120px;
     align-items: center;
+
 `
 
 export const WrapperTextHeader = styled.span`
