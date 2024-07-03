@@ -6,6 +6,7 @@ export const WrapperTextHeaderProduct = styled.span`
     font-size: 45px;
     color: #ffff;
     font-weight: bold;
+    
 `;
 
 export const WrapperTextInforFilm = styled.span`
@@ -22,11 +23,15 @@ export const WrapperContent = styled(Col)`
 export const WrapperItem = styled.div`
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    padding: 10px 0;
     gap: 20px;
     'Poppins', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     padding: 5px;
+    veritcal-align: middle;
+    & i {
+        color: yellow;
+    }
 `;
 
 export const ImageContainer = styled.div`
@@ -57,3 +62,7 @@ export const BadgeBottom = styled.div`
         color: rgba(20, 30, 70, 1);
     }
 `;
+
+export const Infor = styled.div`
+    padding-top: 20px;
+`
