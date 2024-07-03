@@ -9,7 +9,7 @@ const CardComponent = () => {
     return (
         <Card
             hoverable
-            style={{ width: '330px', height: '532px', borderRadius: '0px', background: 'linear-gradient(180deg, #141E46 9.13%, #CC5E64 23.98%, #141E46 33.61%)' }}
+            style={{ width: '330px', height: '560px', borderRadius: '0px', background: 'linear-gradient(180deg, #141E46 9.13%, #CC5E64 23.98%, #141E46 33.61%)' }}
             bodyStyle={{ padding: '5px', background: 'linear-gradient(180deg, #141E46 9.13%, #CC5E64 23.98%, #141E46 33.61%)' }}
             cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
         >

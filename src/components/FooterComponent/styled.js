@@ -2,14 +2,14 @@ import { Row } from "antd";
 import styled from "styled-components";
 
 export const Footer = styled(Row)`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     display: flex;
     background: rgba(187, 37, 37, 0.78);
     padding: 50px 120px;
     margin-top: 50px;
 `
 export const WrapperHeadFooter = styled.span`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: 32px;
     text-align: left;
     color: rgba(255, 255, 255, 1);
@@ -21,7 +21,7 @@ export const WrapperHeadFooter = styled.span`
 
 export const WrapperColFooter = styled.span`
     display: block;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     text-align: left;
     color: rgba(255, 255, 255, 1);
@@ -29,7 +29,7 @@ export const WrapperColFooter = styled.span`
 `
 
 export const WrapperCinema = styled.span`
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
     font-size: 64px;
     font-weight: 600;
     line-height: 96px;

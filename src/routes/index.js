@@ -1,4 +1,3 @@
-import TypeProduct from "../components/TypeProduct/TypeProduct";
 import HomePage from "../pages/Homepage/HomePage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import OrderPage from "../pages/OrderPage/OrderPage";
@@ -6,7 +5,6 @@ import ProductDetail from "../pages/ProductDetail/ProductDetail";
 import ProductsPage from "../pages/ProductsPage/ProductsPage";
 import SignInPage from "../pages/SignInPage/SignInPage";
 import SignUnPage from "../pages/SignUpPage/SignUpPage";
-import TypeProductPage from "../pages/TypeProductPage/TypeProductPage";
 
 export const routes = [
     {

@@ -2,7 +2,7 @@ import React from "react"
 
 const TypeProduct = ({ name }) => {
     return (
-        <div>{name}</div>
+        <div style={{ fontFamily: 'Poppins, sans-serif' }}>{name}</div>
     )
 }
 

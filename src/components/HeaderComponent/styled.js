@@ -12,7 +12,7 @@ export const WrapperTextHeader = styled.span`
     color: #fff;
     font-weight: bold;
     text-align: center;
-    font-family: 'JejuMyeongjo';
+    font-family: 'JejuMyeongjo', sans-serif;
 `
 
 export const WrapperHeaderAccount = styled.div`
@@ -22,7 +22,7 @@ export const WrapperHeaderAccount = styled.div`
     gap: 10px;
     font-size: 15px;
     font-weight: bold;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 `
 
 export const WrapperHeaderFilm = styled(Button)`
@@ -30,7 +30,7 @@ export const WrapperHeaderFilm = styled(Button)`
     background-color: #FF6969;
     font-size: 15px;
     color: #fff;
-    font-family: 'Josefin Sans';
+    font-family: 'Josefin Sans', sans-serif;
     & svg{
         width: 25px;
         height: 25px;
@@ -41,5 +41,12 @@ export const WrapperHeaderCart = styled.div`
     display: flex;
     gap: 10px;
 `
-
+export const WrapperTypeProduct = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    justify-content: flex-start;
+    height: 40px;
+    color: white;
+`
 
