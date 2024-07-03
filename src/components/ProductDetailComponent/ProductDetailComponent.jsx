@@ -72,7 +72,7 @@ const ProductDetailComponent = () => {
                     <Infor>
                         <WrapperTextInforFilm>NỘI DUNG PHIM</WrapperTextInforFilm>
                         <WrapperItem>Chứng kiến ngày mà cả thế giới bỗng im lặng.</WrapperItem>
-                        <a href="#" style={{
+                        <a href="https://youtu.be/qLEYF8KX6GA" style={{
                             color: 'white',
                             textDecoration: 'underline',
                             fontSize: '20px',

@@ -36,6 +36,21 @@ export const WrapperHeaderFilm = styled(Button)`
         height: 25px;
         fill: rgba(255, 245, 224, 1);
     }
+    &:before {
+        background: #f3ea28;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+    }
+    &:after {
+        height: 100%;
+        position: absolute;
+        transition: all .4s ease-in-out;
+        width: .1rem;
+    }        
 `
 export const WrapperHeaderCart = styled.div`
     display: flex;
