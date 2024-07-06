@@ -29,14 +29,14 @@ export const routes = [
     {
         path: '/signin',
         page: SignInPage,
-        IssShowHeader: true,
-        IssShowFooter: true
+        IssShowHeader: false,
+        IssShowFooter: false
     },
     {
         path: '/signup',
         page: SignUnPage,
-        IssShowHeader: true,
-        IssShowFooter: true
+        IssShowHeader: false,
+        IssShowFooter: false
     },
     {
         path: '/productdetail',

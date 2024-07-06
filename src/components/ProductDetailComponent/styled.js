@@ -6,7 +6,6 @@ export const WrapperTextHeaderProduct = styled.span`
     font-size: 45px;
     color: #ffff;
     font-weight: bold;
-    
 `;
 
 export const WrapperTextInforFilm = styled.span`
@@ -14,7 +13,7 @@ export const WrapperTextInforFilm = styled.span`
     font-size: 30px;
     color: #ffff;
     font-weight: bold;
-`
+`;
 
 export const WrapperContent = styled(Col)`
     color: #fff;
@@ -25,10 +24,10 @@ export const WrapperItem = styled.div`
     align-items: center;
     padding: 10px 0;
     gap: 20px;
-    'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 20px;
     padding: 5px;
-    veritcal-align: middle;
+    vertical-align: middle;
     & i {
         color: yellow;
     }
@@ -43,8 +42,8 @@ export const BadgeContainer = styled.div`
     height: 50px;
     position: absolute;
     text-align: center;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 `;
 
 export const BadgeTop = styled.div`
@@ -65,4 +64,4 @@ export const BadgeBottom = styled.div`
 
 export const Infor = styled.div`
     padding-top: 20px;
-`
+`;

@@ -48,7 +48,7 @@ const CardComponent = () => {
                     background: 'rgba(187, 37, 37, 1)',
                     color: 'rgba(252, 255, 100, 1)',
                     fontSize: '24px',
-
+                    width: '100px',
                 }}>Đặt vé</Button>
             </div>
         </Card >
