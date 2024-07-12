@@ -32,12 +32,13 @@ const CardComponent = () => {
                     <span style={{ color: 'rgba(20, 30, 70, 1);' }}>K I D</span>
                 </div>
             </div>
-            <StyledNameProduct>NHỮNG MẢNH GHÉP CẢM XÚC 2</StyledNameProduct>
+            <StyledNameProduct>Những mảnh ghép cảm xúc 2</StyledNameProduct>
             <div style={{
                 display: 'flex',
                 paddingTop: '5px',
                 gap: '15px',
                 justifyContent: 'center',
+                alignItems: 'center',
             }}>
                 <span style={{
                     fontSize: '15px',

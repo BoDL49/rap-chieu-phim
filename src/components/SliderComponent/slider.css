@@ -5,3 +5,16 @@
 .slick-dots li.slick-active button:before {
     color: white;
 }
+
+.slick-prev {
+    left: -45px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-size: 40px;
+}
+
+.slick-dots li button:before {
+    font-size: 10px;
+}
