@@ -4,7 +4,7 @@ const initialState = {
   value: 0,
 }
 
-export const counterSlice = createSlice({
+export const counterSlide = createSlice({
   name: 'counter',
   initialState,
   reducers: {
@@ -21,6 +21,6 @@ export const counterSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount } = counterSlide.actions
 
-export default counterSlice.reducer
+export default counterSlide.reducer

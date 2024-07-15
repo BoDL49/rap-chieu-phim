@@ -1,16 +1,18 @@
-import React from "react"
+import React from "react";
 import { Button, Card } from 'antd';
-import { StyledNameProduct } from './styled'
-
-
-
+import { StyledNameProduct } from './styled';
 
 const CardComponent = () => {
     return (
         <Card
             hoverable
-            style={{ width: '330px', height: '560px', borderRadius: '0px', background: 'linear-gradient(180deg, #141E46 9.13%, #CC5E64 23.98%, #141E46 33.61%)' }}
-            bodyStyle={{ padding: '5px', background: 'linear-gradient(180deg, #141E46 9.13%, #CC5E64 23.98%, #141E46 33.61%)' }}
+            style={{
+                width: '330px',
+                height: '560px',
+                borderRadius: '0px',
+                background: 'linear-gradient(180deg, #141E46 9.13%, #CC5E64 23.98%, #141E46 33.61%)',
+                padding: '1px'
+            }}
             cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
         >
             <div style={{
@@ -28,8 +30,12 @@ const CardComponent = () => {
                         color: '#fff', fontSize: '20px', fontWeight: '700'
                     }}>P</span>
                 </div>
-                <div style={{ background: 'rgba(255, 105, 105, 1)', }}>
-                    <span style={{ color: 'rgba(20, 30, 70, 1);' }}>K I D</span>
+                <div style={{
+                    background: 'rgba(255, 105, 105, 1)',
+                }}>
+                    <span style={{
+                        color: 'rgba(20, 30, 70, 1)'
+                    }}>K I D</span>
                 </div>
             </div>
             <StyledNameProduct>Những mảnh ghép cảm xúc 2</StyledNameProduct>
@@ -52,8 +58,8 @@ const CardComponent = () => {
                     width: '100px',
                 }}>Đặt vé</Button>
             </div>
-        </Card >
-    )
+        </Card>
+    );
 }
 
-export default CardComponent
+export default CardComponent;

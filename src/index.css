@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #141E46;
+  background: linear-gradient(180deg, #141E46 16.48%, #CC5E64 43.28%, #141E46 60.65%);
 
 }
 

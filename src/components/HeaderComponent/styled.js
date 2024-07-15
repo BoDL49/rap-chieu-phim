@@ -23,6 +23,7 @@ export const WrapperHeaderAccount = styled.div`
     font-size: 15px;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
+    vertical-align: middle;
 `
 
 export const WrapperHeaderFilm = styled(Button)`

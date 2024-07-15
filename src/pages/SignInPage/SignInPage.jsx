@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LockOutlined, UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import './style.css';
 import { Link, useNavigate } from 'react-router-dom';
+import * as UserService from '../../services/UserService';
+import { useMutationHook } from '../../hooks/useMutationHook';
+import Loading from '../../components/LoadingComponent/Loading';
+import { jwtDecode } from "jwt-decode";
 
 const SignInPage = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
 
     const navigate = useNavigate();
 
@@ -20,33 +21,55 @@ const SignInPage = () => {
         setShowPassword(!showPassword);
     };
 
+    const mutation = useMutationHook(data => UserService.loginUser(data));
+    const { data, isLoading, isSuccess } = mutation;
+
+    useEffect(() => {
+        if (isSuccess) {
+            navigate('/');
+            localStorage.setItem('access_token', data?.access_token);
+            if (data?.access_token) {
+                const decoded = jwtDecode(data?.access_token);
+                console.log('decoded', decoded);
+                if (decoded?.id) {
+                    handleGetDetailUser(decoded?.id, data?.access_token);
+                }
+            }
+        }
+    }, [isSuccess]);
+
+    const handleGetDetailUser = async (id, token) => {
+        const res = await UserService.getDetailUser(id, token);
+        console.log('res', res);
+    }
+
+    console.log('mutation', mutation);
+
+    const onFinish = (values) => {
+        if (!isLoading) {
+            mutation.mutate(values);
+            console.log('Received values of form: ', values);
+        }
+    };
+
     return (
-
-
         <div className="signin-container">
             <Form
                 name="normal_login"
                 className="login-form"
-                initialValues={{
-                    remember: true,
-                }}
+                initialValues={{ remember: true }}
                 onFinish={onFinish}
                 style={{ width: '600px' }}
             >
                 <h2 className="form-title">ĐĂNG NHẬP</h2>
                 <Form.Item
-                    name="email"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng điền email!',
-                        },
-                    ]}
+                    name="Email"
+                    rules={[{ required: true, message: 'Vui lòng điền email' }]}
                 >
-                    <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email ..." />
+                    <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
                 </Form.Item>
                 <Form.Item
-                    name="password"
+                    name="Matkhau"
                     rules={[{ required: true, message: 'Vui lòng nhập mật khẩu của bạn!' }]}
                 >
                     <Input
@@ -60,12 +83,15 @@ const SignInPage = () => {
                         }
                     />
                 </Form.Item>
-                <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button">
-                        ĐĂNG NHẬP
-                    </Button>
-                    <Link to="/">Quên mật khẩu</Link>
-                </Form.Item>
+                <Loading isLoading={isLoading}>
+                    <Form.Item>
+                        {data?.status === 'ERR' && <div style={{ color: 'red' }}>{data?.message}</div>}
+                        <Button type="primary" htmlType="submit" className="login-form-button">
+                            ĐĂNG NHẬP
+                        </Button>
+                        <Link to="/">Quên mật khẩu</Link>
+                    </Form.Item>
+                </Loading>
                 <div className="form-footer">
                     <span className="divider"></span>
                     <span>HOẶC</span>

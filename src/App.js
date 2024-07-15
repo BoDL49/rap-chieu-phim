@@ -17,12 +17,12 @@ function App() {
 
   // console.log('process.env.REACT_APP_API_URL', process.env.REACT_APP_API_URL)
 
-  const fetchApi = async () => {
-    const res = await axios.get(`${process.env.REACT_APP_API_URL}/user/getALL`)
-    return res.data
-  }
+  // const fetchApi = async () => {
+  //   const res = await axios.get(`${process.env.REACT_APP_API_URL}/user/getALL`)
+  //   return res.data
+  // }
 
-  const query = useQuery({ queryKey: ['todos'], queryFn: fetchApi })
+  // const query = useQuery({ queryKey: ['todos'], queryFn: fetchApi })
 
   // console.log('query', query)
 
