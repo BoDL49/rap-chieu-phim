@@ -5,6 +5,7 @@ import slider1 from '../../assets/images/slider1.webp'
 import slider2 from '../../assets/images/slider2.webp'
 import slider3 from '../../assets/images/slider3.webp'
 import CardComponent from '../../components/CardComponent/CardComponent'
+import ListFilmComponent from '../../components/ListFilmComponent/ListFilmComponent'
 
 const HomePage = () => {
     return (
@@ -28,6 +29,7 @@ const HomePage = () => {
                         color: 'rgb(187, 37, 37, 1)'
                     }}>Xem thêm</span></ButtonCustom>
                 </div>
+
             </div>
         </div>
 

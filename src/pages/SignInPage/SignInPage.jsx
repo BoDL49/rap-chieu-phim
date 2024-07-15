@@ -1,24 +1,24 @@
-import React from 'react';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
+import { LockOutlined, UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import './style.css';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignInPage = () => {
+    const [showPassword, setShowPassword] = useState(false);
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
 
     const navigate = useNavigate();
 
-    const navigateToHome = () => {
-        navigate('/');;
-    };
-
     const navigateTosignup = () => {
         navigate('/signup');
     }
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
     return (
 
@@ -47,17 +47,17 @@ const SignInPage = () => {
                 </Form.Item>
                 <Form.Item
                     name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng điền mật khẩu!',
-                        },
-                    ]}
+                    rules={[{ required: true, message: 'Vui lòng nhập mật khẩu của bạn!' }]}
                 >
                     <Input
                         prefix={<LockOutlined className="site-form-item-icon" />}
-                        type="password"
-                        placeholder="Mật khẩu ..."
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Mật khẩu"
+                        suffix={
+                            <div onClick={togglePasswordVisibility} style={{ cursor: 'pointer' }}>
+                                {showPassword ? <EyeTwoTone /> : <EyeInvisibleOutlined />}
+                            </div>
+                        }
                     />
                 </Form.Item>
                 <Form.Item>

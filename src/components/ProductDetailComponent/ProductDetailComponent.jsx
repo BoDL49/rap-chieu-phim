@@ -2,9 +2,9 @@ import React from 'react';
 import { Row, Col, Image } from 'antd';
 import ImageProduct from '../../assets/images/test.webp';
 import { WrapperContent, WrapperTextHeaderProduct, WrapperItem, ImageContainer, BadgeBottom, BadgeContainer, BadgeTop, WrapperTextInforFilm, Infor } from './styled';
-import Subttile from '../../assets/icon/subtitle.svg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PopupComponent from '../PopupComponent/PopupComponent';
+import subtittle from '../../assets/icon/subtittle.svg';
+import earth from '../../assets/icon/earth.svg';
 
 const ProductDetailComponent = () => {
     return (
@@ -44,11 +44,11 @@ const ProductDetailComponent = () => {
                             <span>100'</span>
                         </WrapperItem>
                         <WrapperItem>
-                            <FontAwesomeIcon icon="fas fa-yin-yang" />
+                            <img src={earth} alt='earth' style={{ height: '30px', width: '30px', color: 'yellow' }} />
                             <span>Khác</span>
                         </WrapperItem>
                         <WrapperItem>
-                            <img src={Subttile} alt="subtitle" style={{ height: '30px', width: '30px' }} />
+                            <img src={subtittle} alt="subtitle" style={{ height: '30px', width: '30px', color: 'yellow' }} />
                             <span>VN</span>
                         </WrapperItem>
                         <WrapperItem>
