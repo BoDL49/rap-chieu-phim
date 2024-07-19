@@ -18,7 +18,9 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.18.3",
     "axios": "^1.7.2",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
+    "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "node": "^20.15.0",
     "react": "^18.3.1",
@@ -61,5 +63,6 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@tanstack/eslint-plugin-query": "^5.51.1"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

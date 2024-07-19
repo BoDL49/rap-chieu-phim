@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { LockOutlined, UserOutlined, EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 import { Button, Form, Input } from 'antd';
 import './style.css';
@@ -7,9 +7,13 @@ import * as UserService from '../../services/UserService';
 import { useMutationHook } from '../../hooks/useMutationHook';
 import Loading from '../../components/LoadingComponent/Loading';
 import { jwtDecode } from "jwt-decode";
+import { useDispatch } from 'react-redux'
+import { updateUser } from '../../redux/slides/userSlide';
 
 const SignInPage = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const inputRef = useRef(null);
+    const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
@@ -19,6 +23,10 @@ const SignInPage = () => {
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
+        if (inputRef.current) {
+            const inputLength = inputRef.current.input.value.length;
+            inputRef.current.input.setSelectionRange(inputLength, inputLength);
+        }
     };
 
     const mutation = useMutationHook(data => UserService.loginUser(data));
@@ -27,10 +35,9 @@ const SignInPage = () => {
     useEffect(() => {
         if (isSuccess) {
             navigate('/');
-            localStorage.setItem('access_token', data?.access_token);
+            localStorage.setItem('access_token', JSON.stringify(data?.access_token));
             if (data?.access_token) {
                 const decoded = jwtDecode(data?.access_token);
-                console.log('decoded', decoded);
                 if (decoded?.id) {
                     handleGetDetailUser(decoded?.id, data?.access_token);
                 }
@@ -40,15 +47,16 @@ const SignInPage = () => {
 
     const handleGetDetailUser = async (id, token) => {
         const res = await UserService.getDetailUser(id, token);
-        console.log('res', res);
-    }
+        dispatch(updateUser({ ...res?.data, access_token: token }));
+    };
 
-    console.log('mutation', mutation);
+    const handleSubmit = useCallback((values) => {
+        mutation.mutate(values);
+    }, [mutation]);
 
     const onFinish = (values) => {
         if (!isLoading) {
-            mutation.mutate(values);
-            console.log('Received values of form: ', values);
+            handleSubmit(values);
         }
     };
 
@@ -72,15 +80,13 @@ const SignInPage = () => {
                     name="Matkhau"
                     rules={[{ required: true, message: 'Vui lòng nhập mật khẩu của bạn!' }]}
                 >
-                    <Input
+                    <Input.Password
+                        ref={inputRef} // Gắn ref vào input field
                         prefix={<LockOutlined className="site-form-item-icon" />}
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Mật khẩu"
-                        suffix={
-                            <div onClick={togglePasswordVisibility} style={{ cursor: 'pointer' }}>
-                                {showPassword ? <EyeTwoTone /> : <EyeInvisibleOutlined />}
-                            </div>
-                        }
+                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        onIconClick={togglePasswordVisibility}
                     />
                 </Form.Item>
                 <Loading isLoading={isLoading}>

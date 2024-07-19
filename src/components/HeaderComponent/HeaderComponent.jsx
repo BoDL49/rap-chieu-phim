@@ -1,14 +1,18 @@
-import React from 'react'
-import { Col } from 'antd'
+import React, { useState } from 'react'
+import { Col, Popover } from 'antd'
 import { WrapperHeader } from './styled'
-import { WrapperTextHeader, WrapperHeaderAccount, WrapperHeaderFilm, WrapperHeaderCart, WrapperTypeProduct } from './styled'
+import { WrapperTextHeader, WrapperHeaderAccount, WrapperHeaderFilm, WrapperHeaderCart, WrapperTypeProduct, WrapperContentPopup } from './styled'
 import { Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import TypeProduct from '../../components/TypeProduct/TypeProduct'
+import * as UserService from '../../services/UserService';
 
 import {
     UserOutlined
 } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { resetUser } from '../../redux/slides/userSlide';
+import Loading from '../LoadingComponent/Loading';
 
 
 const { Search } = Input;
@@ -17,6 +21,9 @@ const { Search } = Input;
 
 const HeaderComponent = () => {
     const navigate = useNavigate();
+    const user = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
 
     const navigateToHome = () => {
         navigate('/');;
@@ -26,6 +33,20 @@ const HeaderComponent = () => {
         navigate('/signIn');
     }
     const arr = ['Phim', 'Lịch chiếu', 'Khuyến mãi']
+
+    const handleLogout = async () => {
+        setLoading(true);
+        await UserService.logoutUser();
+        dispatch(resetUser())
+        setLoading(false);
+    }
+
+    const content = (
+        <div>
+            <WrapperContentPopup onClick={handleLogout}>Đăng xuất</WrapperContentPopup>
+            <WrapperContentPopup>Thông tin người dùng</WrapperContentPopup>
+        </div>
+    )
     return (
 
         <>
@@ -60,12 +81,22 @@ const HeaderComponent = () => {
                         />
                     </Col>
                     <Col span={6}>
-                        <WrapperHeaderAccount style={{ float: 'right' }}>
-                            <UserOutlined style={{ fontSize: '30px' }} />
-                            <div style={{ fontFamily: 'Poppins, sans-serif' }}>
-                                <span onClick={navigateToSignIn} style={{ cursor: 'pointer' }}>Đăng nhập</span>
-                            </div>
-                        </WrapperHeaderAccount>
+                        <Loading isLoading={loading}>
+                            <WrapperHeaderAccount style={{ float: 'right' }}>
+                                <UserOutlined style={{ fontSize: '30px' }} />
+                                <div style={{ fontFamily: 'Poppins, sans-serif' }}>
+                                    {user?.Email ? (
+                                        <>
+                                            <Popover content={content} trigger="click" >
+                                                <div style={{ cursor: 'pointer' }}>{user.Email}</div>
+                                            </Popover>
+                                        </>
+
+                                    ) : (<span onClick={navigateToSignIn} style={{ cursor: 'pointer' }}>Đăng nhập</span>)}
+                                </div>
+                            </WrapperHeaderAccount>
+                        </Loading>
+
 
                     </Col>
                 </WrapperHeader>
