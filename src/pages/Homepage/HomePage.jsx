@@ -5,14 +5,12 @@ import slider1 from '../../assets/images/slider1.webp'
 import slider2 from '../../assets/images/slider2.webp'
 import slider3 from '../../assets/images/slider3.webp'
 import CardComponent from '../../components/CardComponent/CardComponent'
-import ListFilmComponent from '../../components/ListFilmComponent/ListFilmComponent'
+import MovieListComponent from '../../components/MovieListComponent/MovieListComponent'
 
 const HomePage = () => {
     return (
         <div>
-
-
-            <div style={{ padding: '0 100px', width: '89.9%' }}>
+            <div style={{ padding: '0 100px', width: '100%' }}>
                 <SliderComponent arrImages={[slider1, slider2, slider3]} />
 
                 <WrapperProducts>
@@ -30,6 +28,10 @@ const HomePage = () => {
                     }}>Xem thêm</span></ButtonCustom>
                 </div>
 
+                <div>
+                    <MovieListComponent tittle={"Phim đang chiếu"} />
+                    <MovieListComponent tittle={"Phim sắp chiếu"} />
+                </div>
             </div>
         </div>
 

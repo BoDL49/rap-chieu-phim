@@ -8,13 +8,12 @@ import { useMutationHook } from '../../hooks/useMutationHook';
 import Loading from '../../components/LoadingComponent/Loading';
 import { jwtDecode } from "jwt-decode";
 import { useDispatch } from 'react-redux'
-import { updateUser } from '../../redux/slides/userSlide';
+import { updateUser, updateKhachHang } from '../../redux/slides/userSlide';
 
 const SignInPage = () => {
     const [showPassword, setShowPassword] = useState(false);
     const inputRef = useRef(null);
     const dispatch = useDispatch();
-
     const navigate = useNavigate();
 
     const navigateTosignup = () => {
@@ -47,7 +46,9 @@ const SignInPage = () => {
 
     const handleGetDetailUser = async (id, token) => {
         const res = await UserService.getDetailUser(id, token);
-        dispatch(updateUser({ ...res?.data, access_token: token }));
+        const resKh = await UserService.getDetailKhachHang(res?.data.Matk);
+        dispatch(updateUser({ ...res.data, access_token: token }));
+        dispatch(updateKhachHang(resKh?.data));
     };
 
     const handleSubmit = useCallback((values) => {
@@ -81,7 +82,7 @@ const SignInPage = () => {
                     rules={[{ required: true, message: 'Vui lòng nhập mật khẩu của bạn!' }]}
                 >
                     <Input.Password
-                        ref={inputRef} // Gắn ref vào input field
+                        ref={inputRef}
                         prefix={<LockOutlined className="site-form-item-icon" />}
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Mật khẩu"

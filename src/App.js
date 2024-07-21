@@ -9,7 +9,7 @@ import { isJsonString } from './ultils'
 import { jwtDecode } from "jwt-decode";
 import * as UserService from './services/UserService';
 import { useDispatch } from 'react-redux'
-import { updateUser } from './redux/slides/userSlide'
+import { updateUser, updateKhachHang } from './redux/slides/userSlide'
 
 
 function App() {
@@ -37,6 +37,8 @@ function App() {
     try {
       const res = await UserService.getDetailUser(id, token);
       dispatch(updateUser({ ...res?.data, access_token: token }));
+      const resKh = await UserService.getDetailKhachHang(res?.data.Matk);
+      dispatch(updateKhachHang(resKh?.data));
     } catch (error) {
       console.error('Error fetching user details:', error);
     }

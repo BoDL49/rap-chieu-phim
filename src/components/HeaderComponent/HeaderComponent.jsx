@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Col, Popover } from 'antd'
 import { WrapperHeader } from './styled'
 import { WrapperTextHeader, WrapperHeaderAccount, WrapperHeaderFilm, WrapperHeaderCart, WrapperTypeProduct, WrapperContentPopup } from './styled'
@@ -24,6 +24,8 @@ const HeaderComponent = () => {
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
+    const [TenKH, setTenKH] = useState('');
+    const [userAvatar, setUserAvatar] = useState('');
 
     const navigateToHome = () => {
         navigate('/');;
@@ -41,10 +43,17 @@ const HeaderComponent = () => {
         setLoading(false);
     }
 
+    useEffect(() => {
+        setLoading(true);
+        setTenKH(user?.TenKH);
+        setUserAvatar(user?.Avatar);
+        setLoading(false);
+    }, [user?.TenKH, user?.Avatar])
+
     const content = (
         <div>
             <WrapperContentPopup onClick={handleLogout}>Đăng xuất</WrapperContentPopup>
-            <WrapperContentPopup>Thông tin người dùng</WrapperContentPopup>
+            <WrapperContentPopup onClick={() => navigate('/profile-user')}>Thông tin người dùng</WrapperContentPopup>
         </div>
     )
     return (
@@ -83,12 +92,16 @@ const HeaderComponent = () => {
                     <Col span={6}>
                         <Loading isLoading={loading}>
                             <WrapperHeaderAccount style={{ float: 'right' }}>
-                                <UserOutlined style={{ fontSize: '30px' }} />
+                                {userAvatar ? (
+                                    <img src={userAvatar} alt="Avatar" style={{ width: '50px', height: '50px', borderRadius: '50%', ObjectFit: 'cover' }} />
+                                ) : (
+                                    <UserOutlined style={{ fontSize: '30px' }} />
+                                )}
                                 <div style={{ fontFamily: 'Poppins, sans-serif' }}>
-                                    {user?.Email ? (
+                                    {user?.TenKH ? (
                                         <>
                                             <Popover content={content} trigger="click" >
-                                                <div style={{ cursor: 'pointer' }}>{user.Email}</div>
+                                                <div style={{ cursor: 'pointer' }}>{TenKH}</div>
                                             </Popover>
                                         </>
 

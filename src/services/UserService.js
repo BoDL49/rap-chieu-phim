@@ -32,3 +32,30 @@ export const logoutUser = async () => {
     const res = await axios.post(`${process.env.REACT_APP_API_URL}/user/logout`);
     return res.data;
 };
+
+export const getDetailKhachHang = async (data) => {
+    const res = await axiosJTW.get(`${process.env.REACT_APP_API_URL}/khachhang/getDetail/${data}`);
+    return res.data;
+};
+
+export const updateKhachHang = async (idkh, data, access_token) => {
+    const res = await axiosJTW.put(`${process.env.REACT_APP_API_URL}/khachhang//updateKhachHang/${idkh}`, data,
+        {
+            headers: {
+                token: `Bearer ${access_token}`,
+            }
+        }
+    );
+    return res.data;
+};
+
+export const updateUser = async (idtk, data, access_token) => {
+    const res = await axiosJTW.put(`${process.env.REACT_APP_API_URL}/user//updateuser/${idtk}`, data,
+        {
+            headers: {
+                token: `Bearer ${access_token}`,
+            }
+        }
+    );
+    return res.data;
+};

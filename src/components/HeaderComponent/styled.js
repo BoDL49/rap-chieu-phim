@@ -54,7 +54,6 @@ export const WrapperTypeProduct = styled.div`
 export const WrapperContentPopup = styled.p`
     cursor: pointer;
     &:hover {
-        background: 'red';
-        color: #fffff;
+        color: rgb(26,148,255);
     }
 `
